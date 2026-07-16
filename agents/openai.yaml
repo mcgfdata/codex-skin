@@ -1,0 +1,7 @@
+interface:
+  display_name: "Codex Skin"
+  short_description: "Create and apply Codex desktop skins"
+  default_prompt: "Use $codex-skin to create, apply, verify, update, or safely restore a Codex desktop skin."
+
+policy:
+  allow_implicit_invocation: true

@@ -1,0 +1,35 @@
+{
+  "name": "codex-skin",
+  "version": "0.2.0",
+  "description": "A Codex Skill and cross-platform runtime for creating, applying, exporting, verifying, and restoring custom Codex desktop skins.",
+  "type": "module",
+  "license": "Apache-2.0",
+  "files": [
+    "LICENSE",
+    "NOTICE",
+    "TRADEMARKS.md",
+    "ASSETS_LICENSE.md",
+    "README.zh-CN.md",
+    "SKILL.md",
+    "agents",
+    "assets",
+    "evals",
+    "references",
+    "scripts",
+    "themes"
+  ],
+  "exports": {
+    "./theme-lib": "./scripts/theme-lib.mjs",
+    "./theme-package": "./scripts/theme-package.mjs"
+  },
+  "scripts": {
+    "test": "node scripts/self-test.mjs",
+    "pack:check": "npm pack --dry-run"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
