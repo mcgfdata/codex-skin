@@ -21,24 +21,24 @@ Runtime note: keep `LICENSE`, `NOTICE`, and asset notices intact when redistribu
 ### Apply an existing theme
 
 1. Resolve the theme name from `themes/<name>.json`; use `dream` when the user did not request another theme.
-2. Run the platform installer once. It applies matching official base colors and creates launch/restore shortcuts.
-3. Launch the themed Codex app. Restart an already-open Codex only after the user authorizes it.
+2. Prefer `scripts/setup-skin.*` for a one-command setup. It applies matching official base colors and creates launch, restart, and restore desktop entries.
+3. If the user asks for direct activation and authorizes restarting Codex, use `scripts/restart-skin.*`; otherwise tell the user to double-click the generated restart launcher after saving current work.
 4. Run platform verification with an absolute screenshot path. Treat a missing native home hero, native suggestion cards, composer, sidebar, theme marker, or matching theme version as failure.
 5. Inspect both the home screen and a normal task against `references/qa-inventory.md`.
 
 Windows:
 
 ```powershell
-scripts/install-skin.ps1 -Theme dream
-scripts/start-skin.ps1 -Theme dream
+scripts/setup-skin.ps1 -Theme dream
+scripts/restart-skin.ps1 -Theme dream
 scripts/verify-skin.ps1 -Theme dream -ScreenshotPath C:\absolute\dream.png
 ```
 
 macOS:
 
 ```bash
-scripts/install-skin.sh --theme dream
-scripts/start-skin.sh --theme dream
+scripts/setup-skin.sh --theme dream
+scripts/restart-skin.sh --theme dream
 scripts/verify-skin.sh --theme dream --screenshot /absolute/dream.png
 ```
 
@@ -106,6 +106,8 @@ scripts/restore-skin.sh --uninstall --restore-base-theme
 
 - `themes/*.json`: selectable theme manifests and copy/base-color settings.
 - `scripts/*-skin.*`: public wrapper commands for applying, starting, verifying, and restoring skins.
+- `scripts/setup-skin.*`: one-command setup that installs the selected skin and creates desktop launchers.
+- `scripts/restart-skin.*`: restart the official Codex app with skin mode enabled.
 - `scripts/create-theme.mjs`: deterministic AI-theme scaffold.
 - `scripts/export-theme.mjs`: portable `.codex-theme` exporter.
 - `scripts/theme-package.mjs`: shared package builder and safety limits.

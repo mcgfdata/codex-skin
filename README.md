@@ -46,37 +46,39 @@ Use $codex-skin to apply the dream skin to Codex.
 
 ## Use A Skin
 
-The shortest path is to start with the bundled `dream` skin.
+The easiest path is to run `setup-skin` once. It installs the skin settings and creates launch, restart, and restore entries on the desktop.
 
 macOS:
 
 ```bash
 cd /path/to/codex-skin
-scripts/install-skin.sh --theme dream
-scripts/start-skin.sh --theme dream
+scripts/setup-skin.sh --theme dream
 ```
 
 Windows:
 
 ```powershell
 cd C:\path\to\codex-skin
-scripts\install-skin.ps1 -Theme dream
-scripts\start-skin.ps1 -Theme dream
+scripts\setup-skin.ps1 -Theme dream
 ```
 
-`install-skin` applies matching base colors and creates desktop launch/restore shortcuts. After that, use `start-skin` to launch Codex with the selected skin.
+After setup, the desktop contains:
 
-If Codex is already running without the debug port, close it first or explicitly allow a restart:
+- `Codex Skin.command`: launch Codex with the selected skin.
+- `Codex Skin - Restart.command`: close the current Codex window and reopen it with the skin.
+- `Codex Skin - Restore.command`: remove the active skin.
+
+If Codex is already running, save your current work and use the restart launcher. You can also run it from the terminal:
 
 ```bash
-scripts/start-skin.sh --theme dream --restart-existing
+scripts/restart-skin.sh --theme dream
 ```
 
 To switch skins, change the theme name:
 
 ```bash
 scripts/install-skin.sh --theme kun-stage
-scripts/start-skin.sh --theme kun-stage
+scripts/restart-skin.sh --theme kun-stage
 ```
 
 Bundled theme names:
@@ -109,6 +111,21 @@ scripts\restore-skin.ps1 -Uninstall -RestoreBaseTheme
 ```
 
 If the restore command says no backup is available, run the command without the base-theme flag and remove only the live skin.
+
+## Manual Commands
+
+To avoid desktop launchers, install and start manually:
+
+```bash
+scripts/install-skin.sh --theme dream
+scripts/start-skin.sh --theme dream
+```
+
+If Codex is already running without the debug port:
+
+```bash
+scripts/start-skin.sh --theme dream --restart-existing
+```
 
 ## Create A New Skin
 

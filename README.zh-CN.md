@@ -53,42 +53,41 @@ Use $codex-skin 关闭皮肤，恢复原生界面。
 
 ## 使用皮肤
 
-最短路径是使用内置的 `dream` 皮肤。
+最省事的方式是执行一次 `setup-skin`。它会安装皮肤配置，并在桌面生成启动、重启、恢复三个入口。
 
 macOS：
 
 ```bash
 cd /path/to/codex-skin
-scripts/install-skin.sh --theme dream
-scripts/start-skin.sh --theme dream
+scripts/setup-skin.sh --theme dream
 ```
 
 Windows：
 
 ```powershell
 cd C:\path\to\codex-skin
-scripts\install-skin.ps1 -Theme dream
-scripts\start-skin.ps1 -Theme dream
+scripts\setup-skin.ps1 -Theme dream
 ```
 
-第一次运行 `install-skin` 会做两件事：
+执行完成后，桌面会出现：
 
-- 写入和当前皮肤匹配的 Codex 基础配色。
-- 在桌面创建启动和恢复快捷方式。
+- `Codex Skin.command`：启动带皮肤的 Codex。
+- `Codex Skin - Restart.command`：关闭当前 Codex，再用皮肤模式打开。
+- `Codex Skin - Restore.command`：移除当前皮肤。
 
-之后日常使用时，运行 `start-skin` 即可启动带皮肤的 Codex。
+如果 Codex 正在运行，保存好当前工作后，双击 `Codex Skin - Restart.command`。之后日常使用时，双击 `Codex Skin.command` 即可。
 
-如果 Codex 已经打开，而且不是通过皮肤脚本启动的，先关闭 Codex；或者明确允许脚本重启：
+也可以不用桌面入口，直接运行：
 
 ```bash
-scripts/start-skin.sh --theme dream --restart-existing
+scripts/restart-skin.sh --theme dream
 ```
 
 换皮肤只需要把主题名换掉：
 
 ```bash
 scripts/install-skin.sh --theme kun-stage
-scripts/start-skin.sh --theme kun-stage
+scripts/restart-skin.sh --theme kun-stage
 ```
 
 当前内置主题名：
@@ -121,6 +120,21 @@ scripts\restore-skin.ps1 -Uninstall -RestoreBaseTheme
 ```
 
 如果恢复脚本提示没有备份，说明当前机器上没有找到安装前保存的基础主题配置。这种情况下可以先运行不带 `--restore-base-theme` 的恢复命令，只移除运行中的皮肤。
+
+## 手动命令
+
+如果不想生成桌面入口，可以手动安装和启动：
+
+```bash
+scripts/install-skin.sh --theme dream
+scripts/start-skin.sh --theme dream
+```
+
+如果 Codex 已经打开，而且不是通过皮肤脚本启动的：
+
+```bash
+scripts/start-skin.sh --theme dream --restart-existing
+```
 
 ## 做一个新皮肤
 
