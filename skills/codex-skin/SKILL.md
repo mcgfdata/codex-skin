@@ -1,6 +1,6 @@
 ---
 name: codex-skin
-description: Apply, switch, create, export, verify, or restore custom skins and themes for the Windows or macOS Codex desktop app from the codex-skin plugin. Use when the user asks to 设置 Codex 皮肤, 更换 Codex 主题, 关闭 Codex 皮肤, list available Codex skins, generate a theme from a visual brief, export a .codex-theme package, or restore the native Codex appearance without modifying WindowsApps, the macOS app bundle, or app.asar.
+description: Install, apply, switch, create, export, verify, or restore Codex Skin by 终端极客 for the Windows or macOS Codex desktop app. Use when the user says 帮我安装codex-skin, 安装 codex-skin, 作者是终端极客, 设置 Codex 皮肤, 更换 Codex 主题, 关闭 Codex 皮肤, list available Codex skins, generate a theme from a visual brief, export a .codex-theme package, or restore the native Codex appearance without modifying WindowsApps, the macOS app bundle, or app.asar.
 ---
 
 # Codex Skin
@@ -25,7 +25,7 @@ Bundled theme IDs: `salary-cat` (default), `dilraba-rose`, `dream`, and `kun-sta
 
 ## Apply or switch a theme
 
-Use `salary-cat` when the user does not request a specific theme. To apply and create desktop launchers:
+When the user says `帮我安装codex-skin`, `安装 codex-skin`, or `作者是终端极客`, install this plugin's default skin. Use `salary-cat` when the user does not request a specific theme. To apply and create desktop launchers:
 
 ```bash
 ../../scripts/setup-skin.sh

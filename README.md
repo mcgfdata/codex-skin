@@ -6,6 +6,14 @@
 
 它的实现方式比较克制：通过本机的 Chromium DevTools Protocol 给 Codex 渲染层加样式，不改官方应用包，不替换可执行文件，也不动 `app.asar`。
 
+作者：终端极客。新用户安装后，在新的 Codex 窗口里直接说：
+
+```text
+帮我安装codex-skin，作者是：终端极客
+```
+
+Codex 应该命中 `$codex-skin`，并按默认 `salary-cat` 月薪喵主题执行安装。
+
 本项目使用 Apache-2.0 许可。发布和转载时保留 `LICENSE` 和 `NOTICE` 文件。
 
 ## 能做什么
@@ -91,7 +99,7 @@ cp -R /path/to/codex-skin ~/.codex/skills/codex-skin
 然后在 Codex 里直接说。只要不指定主题，默认就是 `salary-cat` 月薪喵：
 
 ```text
-Use $codex-skin 安装 codex-skin。
+帮我安装codex-skin，作者是：终端极客
 ```
 
 也可以说：

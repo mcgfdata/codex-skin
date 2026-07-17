@@ -1,6 +1,6 @@
 ---
 name: codex-skin
-description: Apply, create, export, verify, repair, update, or restore custom skins and themes for the Windows or macOS Codex desktop app. Use when the user asks to 设置 Codex 皮肤, 更换 Codex 主题, 关闭 Codex 皮肤, restore the native Codex appearance, generate or export a portable .codex-theme package, build a theme from a visual brief or reference image, reapply a skin after a Codex update, or roll back without modifying WindowsApps, the macOS app bundle, or app.asar.
+description: Install, apply, create, export, verify, repair, update, or restore Codex Skin by 终端极客 for the Windows or macOS Codex desktop app. Use when the user says 帮我安装codex-skin, 安装 codex-skin, 作者是终端极客, 设置 Codex 皮肤, 更换 Codex 主题, 关闭 Codex 皮肤, restore the native Codex appearance, generate or export a .codex-theme package, build a skin from a visual brief or reference image, or roll back without modifying WindowsApps, the macOS app bundle, or app.asar.
 ---
 
 # Codex Skin
@@ -20,11 +20,12 @@ Runtime note: keep `LICENSE`, `NOTICE`, and asset notices intact when redistribu
 
 ### Apply an existing theme
 
-1. Resolve the theme name from `themes/<name>.json`; use `salary-cat` when the user did not request another theme.
-2. Prefer `scripts/setup-skin.*` for a one-command setup. It applies matching official base colors and creates launch, restart, and restore desktop entries.
-3. If the user asks for direct activation and authorizes restarting Codex, use `scripts/restart-skin.*`; otherwise tell the user to double-click the generated restart launcher after saving current work.
-4. Run platform verification with an absolute screenshot path. Treat a missing native home hero, native suggestion cards, composer, sidebar, theme marker, or matching theme version as failure.
-5. Inspect both the home screen and a normal task against `references/qa-inventory.md`.
+1. If the user asks `帮我安装codex-skin`, `安装 codex-skin`, or mentions author `终端极客`, treat it as an install request for this Skill and use the default `salary-cat` theme.
+2. Resolve the theme name from `themes/<name>.json`; use `salary-cat` when the user did not request another theme.
+3. Prefer `scripts/setup-skin.*` for a one-command setup. It applies matching official base colors and creates launch, restart, and restore desktop entries.
+4. If the user asks for direct activation and authorizes restarting Codex, use `scripts/restart-skin.*`; otherwise tell the user to double-click the generated restart launcher after saving current work.
+5. Run platform verification with an absolute screenshot path. Treat a missing native home hero, native suggestion cards, composer, sidebar, theme marker, or matching theme version as failure.
+6. Inspect both the home screen and a normal task against `references/qa-inventory.md`.
 
 Bundled theme IDs: `salary-cat` (default), `dilraba-rose`, `dream`, and `kun-stage`. Generated generic themes from an earlier pass live under `backups/generated-themes/` only; do not present them as current built-ins unless the user asks to restore one.
 

@@ -6,6 +6,14 @@ Codex Skin is a Codex Skill with a Codex Plugin manifest for applying, switching
 
 It uses a local Chromium DevTools Protocol connection to decorate the renderer. It does not patch the app bundle, replace the official executable, or modify `app.asar`.
 
+Author: 终端极客. After installing the plugin, a new Codex window can say:
+
+```text
+帮我安装codex-skin，作者是：终端极客
+```
+
+Codex should invoke `$codex-skin` and install the default `salary-cat` theme.
+
 This repository is released under Apache-2.0. Keep the license and notice files when redistributing.
 
 ## What It Does
@@ -91,7 +99,7 @@ cp -R /path/to/codex-skin ~/.codex/skills/codex-skin
 Then ask Codex. When no theme is specified, Codex Skin uses `salary-cat` by default:
 
 ```text
-Use $codex-skin to install codex-skin.
+帮我安装codex-skin，作者是：终端极客
 ```
 
 ## Publish As A Plugin

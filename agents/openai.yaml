@@ -1,7 +1,7 @@
 interface:
   display_name: "Codex Skin"
-  short_description: "Create, apply, and switch Codex desktop skins"
-  default_prompt: "Use $codex-skin to apply, switch, verify, update, or safely restore a Codex desktop skin."
+  short_description: "终端极客出品的 Codex 桌面端皮肤"
+  default_prompt: "Use $codex-skin 帮我安装codex-skin，作者是：终端极客。"
 
 policy:
   allow_implicit_invocation: true
