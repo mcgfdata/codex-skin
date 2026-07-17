@@ -26,9 +26,27 @@ Runtime note: keep `LICENSE`, `NOTICE`, and asset notices intact when redistribu
 4. Run platform verification with an absolute screenshot path. Treat a missing native home hero, native suggestion cards, composer, sidebar, theme marker, or matching theme version as failure.
 5. Inspect both the home screen and a normal task against `references/qa-inventory.md`.
 
-Bundled theme IDs: `catppuccin-mocha`, `dilraba-rose`, `dracula`, `dream`, `github-light`, `kun-stage`, `matrix-green`, `nord-aurora`, `ocean-calm`, `rose-pine`, `solarized-light`, and `tokyo-night`.
+Bundled theme IDs: `dilraba-rose`, `dream`, and `kun-stage`. Generated generic themes from an earlier pass live under `backups/generated-themes/` only; do not present them as current built-ins unless the user asks to restore one.
 
 When the user asks what themes are available, list the IDs above and point them to `README.md` for the preview gallery.
+
+### Import an external theme
+
+Use `scripts/import-external-theme.mjs` when the user has a ready-made external theme package:
+
+- `--mode builder` for `kongxcer555/codex-skin-builder` generated packages containing `skin.json`.
+- `--mode dream` for `Fei-Away/Codex-Dream-Skin` preset directories containing `theme.json` plus a background image.
+- `--mode auto` to detect either format.
+
+Example:
+
+```bash
+node scripts/import-external-theme.mjs --source /absolute/external-theme --mode auto
+scripts/install-skin.sh --theme <theme-id>
+scripts/restart-skin.sh --theme <theme-id>
+```
+
+Do not import Codex UI screenshots as wallpapers. If an image already includes a sidebar, cards, composer, buttons, or text, treat it as a visual reference only and ask for or generate a clean no-UI background.
 
 Windows:
 
@@ -113,6 +131,7 @@ scripts/restore-skin.sh --uninstall --restore-base-theme
 - `scripts/setup-skin.*`: one-command setup that installs the selected skin and creates desktop launchers.
 - `scripts/restart-skin.*`: restart the official Codex app with skin mode enabled.
 - `scripts/create-theme.mjs`: deterministic AI-theme scaffold.
+- `scripts/import-external-theme.mjs`: convert `codex-skin-builder` and `Codex-Dream-Skin` theme packages into this repository's `themes/*.json` format.
 - `scripts/export-theme.mjs`: portable `.codex-theme` exporter.
 - `scripts/theme-package.mjs`: shared package builder and safety limits.
 - `scripts/self-test.mjs`: theme schema, config round-trip, and assembled-payload smoke test.

@@ -18,37 +18,57 @@
 
 当前内置皮肤：
 
-- `catppuccin-mocha`
 - `dilraba-rose`
-- `dracula`
 - `dream`
-- `github-light`
 - `kun-stage`
-- `matrix-green`
-- `nord-aurora`
-- `ocean-calm`
-- `rose-pine`
-- `solarized-light`
-- `tokyo-night`
 
-主题整理参考了常见编辑器、终端和 GitHub 开源主题的配色方向。仓库里的主题 CSS 和预览图均为本项目重新制作，不包含第三方 Logo、截图或品牌素材。
+上一版生成的通用工程主题已移到 `backups/generated-themes/`，保留备份但不作为 README 主展示。
 
 ## 主题效果
 
 | 主题 | 预览 |
 | --- | --- |
-| `catppuccin-mocha` | ![catppuccin-mocha 主题效果](assets/previews/catppuccin-mocha.svg) |
 | `dilraba-rose` | ![dilraba-rose 主题效果](assets/previews/dilraba-rose.svg) |
-| `dracula` | ![dracula 主题效果](assets/previews/dracula.svg) |
 | `dream` | ![dream 主题效果](assets/previews/dream.svg) |
-| `github-light` | ![github-light 主题效果](assets/previews/github-light.svg) |
 | `kun-stage` | ![kun-stage 主题效果](assets/previews/kun-stage.svg) |
-| `matrix-green` | ![matrix-green 主题效果](assets/previews/matrix-green.svg) |
-| `nord-aurora` | ![nord-aurora 主题效果](assets/previews/nord-aurora.svg) |
-| `ocean-calm` | ![ocean-calm 主题效果](assets/previews/ocean-calm.svg) |
-| `rose-pine` | ![rose-pine 主题效果](assets/previews/rose-pine.svg) |
-| `solarized-light` | ![solarized-light 主题效果](assets/previews/solarized-light.svg) |
-| `tokyo-night` | ![tokyo-night 主题效果](assets/previews/tokyo-night.svg) |
+
+## 集成外部主题
+
+本项目已支持导入同类开源皮肤项目的主题包：
+
+- `kongxcer555/codex-skin-builder`：支持导入它生成的 `skin.json` 独立皮肤包。
+- `Fei-Away/Codex-Dream-Skin`：支持导入 `theme.json + background` 预设目录。
+
+导入 `codex-skin-builder` 生成包：
+
+```bash
+node scripts/import-external-theme.mjs \
+  --source /absolute/path/to/generated-skin \
+  --mode builder
+```
+
+导入 `Codex-Dream-Skin` 预设：
+
+```bash
+node scripts/import-external-theme.mjs \
+  --source /absolute/path/to/Codex-Dream-Skin/macos/presets/preset-amber-dusk \
+  --mode dream
+```
+
+导入后会生成：
+
+- `themes/<theme-id>.json`
+- `themes/<theme-id>.css`
+- `assets/imported/<theme-id>/...`
+
+然后按普通主题使用：
+
+```bash
+scripts/install-skin.sh --theme <theme-id>
+scripts/restart-skin.sh --theme <theme-id>
+```
+
+注意：带 Codex 界面的效果截图不能直接当背景导入。应使用无 UI 的纯背景图，或导入外部仓库中已经整理好的 `theme.json + background` 目录。
 
 ## 环境要求
 
@@ -130,18 +150,9 @@ scripts/restart-skin.sh --theme kun-stage
 
 当前内置主题名：
 
-- `catppuccin-mocha`
 - `dilraba-rose`
-- `dracula`
 - `dream`
-- `github-light`
 - `kun-stage`
-- `matrix-green`
-- `nord-aurora`
-- `ocean-calm`
-- `rose-pine`
-- `solarized-light`
-- `tokyo-night`
 
 ## 移除皮肤
 

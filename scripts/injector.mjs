@@ -144,13 +144,24 @@ async function loadPayload(themeRef) {
   if (/@import\s|url\(\s*["']?https?:/i.test(css)) {
     throw new Error(`Theme ${theme.id} contains remote CSS resources; use local assets only`);
   }
-  const artDataUrl = `data:image/png;base64,${art.toString("base64")}`;
+  const mimeType = mimeTypeFor(theme.artPath);
+  const artDataUrl = `data:${mimeType};base64,${art.toString("base64")}`;
   const publicTheme = { id: theme.id, displayName: theme.displayName, version: theme.version, copy: theme.copy };
   const expression = template
     .replace("__DREAM_CSS_JSON__", JSON.stringify(css))
     .replace("__DREAM_ART_JSON__", JSON.stringify(artDataUrl))
     .replace("__DREAM_THEME_JSON__", JSON.stringify(publicTheme));
   return { expression, theme: publicTheme };
+}
+
+function mimeTypeFor(filename) {
+  switch (path.extname(filename || "").toLowerCase()) {
+    case ".jpg":
+    case ".jpeg": return "image/jpeg";
+    case ".webp": return "image/webp";
+    case ".gif": return "image/gif";
+    default: return "image/png";
+  }
 }
 
 async function connectTarget(target) {

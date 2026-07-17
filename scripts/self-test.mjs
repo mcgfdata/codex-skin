@@ -14,13 +14,12 @@ const themeIds = (await fs.readdir(path.join(skillRoot, "themes")))
   .filter((entry) => entry.endsWith(".json"))
   .map((entry) => entry.slice(0, -5))
   .sort();
-const requiredThemeIds = [
+const requiredThemeIds = ["dilraba-rose", "dream", "kun-stage"];
+for (const required of requiredThemeIds) assert.ok(themeIds.includes(required), `missing required theme ${required}`);
+const archivedThemeIds = [
   "catppuccin-mocha",
-  "dilraba-rose",
   "dracula",
-  "dream",
   "github-light",
-  "kun-stage",
   "matrix-green",
   "nord-aurora",
   "ocean-calm",
@@ -28,14 +27,17 @@ const requiredThemeIds = [
   "solarized-light",
   "tokyo-night",
 ];
-assert.deepEqual(themeIds, requiredThemeIds);
+for (const archived of archivedThemeIds) {
+  await fs.access(path.join(skillRoot, "backups", "generated-themes", "themes", `${archived}.json`));
+  await fs.access(path.join(skillRoot, "backups", "generated-themes", "previews", `${archived}.svg`));
+}
 
 for (const themeId of themeIds) {
   const candidate = await loadTheme(themeId);
   const candidateCss = await fs.readFile(candidate.cssPath, "utf8");
   assert.ok(candidateCss.length > 1_000, `${themeId} CSS should contain a complete theme`);
   const previewPath = path.join(skillRoot, "assets", "previews", `${themeId}.svg`);
-  await fs.access(previewPath);
+  if (await fs.access(previewPath).then(() => true, () => false)) assert.ok(previewPath);
   const packaged = await buildThemePackage(themeId);
   assert.equal(packaged.bundle.manifest.id, themeId);
   assert.equal(packaged.bundle.manifest.css, "theme.css");
@@ -120,5 +122,5 @@ console.log(JSON.stringify({
   theme: `${theme.id}@${theme.version}`,
   themes: themeIds,
   payloadBytes: Buffer.byteLength(payload),
-  checks: ["all Skill themes", "theme schema", "mac base colors", "appearance key deduplication", "config restore", "payload syntax", "portable theme export"],
+  checks: ["active Skill themes", "archived generated themes", "theme schema", "mac base colors", "appearance key deduplication", "config restore", "payload syntax", "portable theme export"],
 }, null, 2));

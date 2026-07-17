@@ -12,10 +12,11 @@
   if (previous?.artUrl && !sameArt) URL.revokeObjectURL(previous.artUrl);
   const artUrl = (sameArt && previous?.artUrl) || (() => {
     const comma = artDataUrl.indexOf(",");
+    const mime = /^data:([^;,]+)/.exec(artDataUrl)?.[1] || "image/png";
     const binary = atob(artDataUrl.slice(comma + 1));
     const bytes = new Uint8Array(binary.length);
     for (let index = 0; index < binary.length; index += 1) bytes[index] = binary.charCodeAt(index);
-    return URL.createObjectURL(new Blob([bytes], { type: "image/png" }));
+    return URL.createObjectURL(new Blob([bytes], { type: mime }));
   })();
   if (!sameArt) {
     const image = new Image();

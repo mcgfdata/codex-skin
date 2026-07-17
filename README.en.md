@@ -18,37 +18,57 @@ This repository is released under Apache-2.0. Keep the license and notice files 
 
 Bundled skins:
 
-- `catppuccin-mocha`
 - `dilraba-rose`
-- `dracula`
 - `dream`
-- `github-light`
 - `kun-stage`
-- `matrix-green`
-- `nord-aurora`
-- `ocean-calm`
-- `rose-pine`
-- `solarized-light`
-- `tokyo-night`
 
-The catalog is based on common editor, terminal, and GitHub theme directions. The CSS and preview images in this repository are original project assets and do not include third-party logos, screenshots, or brand artwork.
+The previous generic engineering themes have been moved to `backups/generated-themes/`. They are kept as backups but are no longer the main README gallery.
 
 ## Theme Gallery
 
 | Theme | Preview |
 | --- | --- |
-| `catppuccin-mocha` | ![catppuccin-mocha theme preview](assets/previews/catppuccin-mocha.svg) |
 | `dilraba-rose` | ![dilraba-rose theme preview](assets/previews/dilraba-rose.svg) |
-| `dracula` | ![dracula theme preview](assets/previews/dracula.svg) |
 | `dream` | ![dream theme preview](assets/previews/dream.svg) |
-| `github-light` | ![github-light theme preview](assets/previews/github-light.svg) |
 | `kun-stage` | ![kun-stage theme preview](assets/previews/kun-stage.svg) |
-| `matrix-green` | ![matrix-green theme preview](assets/previews/matrix-green.svg) |
-| `nord-aurora` | ![nord-aurora theme preview](assets/previews/nord-aurora.svg) |
-| `ocean-calm` | ![ocean-calm theme preview](assets/previews/ocean-calm.svg) |
-| `rose-pine` | ![rose-pine theme preview](assets/previews/rose-pine.svg) |
-| `solarized-light` | ![solarized-light theme preview](assets/previews/solarized-light.svg) |
-| `tokyo-night` | ![tokyo-night theme preview](assets/previews/tokyo-night.svg) |
+
+## External Themes
+
+This project can import themes from similar open-source Codex skin projects:
+
+- `kongxcer555/codex-skin-builder`: imports generated `skin.json` skin packages.
+- `Fei-Away/Codex-Dream-Skin`: imports `theme.json + background` preset directories.
+
+Import a `codex-skin-builder` package:
+
+```bash
+node scripts/import-external-theme.mjs \
+  --source /absolute/path/to/generated-skin \
+  --mode builder
+```
+
+Import a `Codex-Dream-Skin` preset:
+
+```bash
+node scripts/import-external-theme.mjs \
+  --source /absolute/path/to/Codex-Dream-Skin/macos/presets/preset-amber-dusk \
+  --mode dream
+```
+
+The importer creates:
+
+- `themes/<theme-id>.json`
+- `themes/<theme-id>.css`
+- `assets/imported/<theme-id>/...`
+
+Then use it like any bundled theme:
+
+```bash
+scripts/install-skin.sh --theme <theme-id>
+scripts/restart-skin.sh --theme <theme-id>
+```
+
+Screenshots that already contain the Codex UI should not be imported as wallpaper. Use a no-UI background image or an external repository preset that already provides `theme.json + background`.
 
 ## Requirements
 
@@ -121,18 +141,9 @@ scripts/restart-skin.sh --theme kun-stage
 
 Bundled theme names:
 
-- `catppuccin-mocha`
 - `dilraba-rose`
-- `dracula`
 - `dream`
-- `github-light`
 - `kun-stage`
-- `matrix-green`
-- `nord-aurora`
-- `ocean-calm`
-- `rose-pine`
-- `solarized-light`
-- `tokyo-night`
 
 ## Remove A Skin
 

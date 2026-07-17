@@ -21,7 +21,7 @@ This is the plugin entry for `codex-skin`. The runtime root is two directories a
 
 Use the same workflows as the root `SKILL.md`. Prefer script execution over rewriting logic in chat.
 
-Bundled theme IDs: `catppuccin-mocha`, `dilraba-rose`, `dracula`, `dream`, `github-light`, `kun-stage`, `matrix-green`, `nord-aurora`, `ocean-calm`, `rose-pine`, `solarized-light`, and `tokyo-night`.
+Bundled theme IDs: `dilraba-rose`, `dream`, and `kun-stage`. Earlier generated generic themes are archived under `../../backups/generated-themes/`.
 
 ## Apply or switch a theme
 
@@ -38,14 +38,29 @@ Use `dream` when the user does not request a specific theme. To apply and create
 To switch themes after setup:
 
 ```bash
-../../scripts/install-skin.sh --theme tokyo-night
-../../scripts/restart-skin.sh --theme tokyo-night
+../../scripts/install-skin.sh --theme kun-stage
+../../scripts/restart-skin.sh --theme kun-stage
 ```
 
 ```powershell
-..\..\scripts\install-skin.ps1 -Theme tokyo-night
-..\..\scripts\restart-skin.ps1 -Theme tokyo-night
+..\..\scripts\install-skin.ps1 -Theme kun-stage
+..\..\scripts\restart-skin.ps1 -Theme kun-stage
 ```
+
+## Import an external theme
+
+Use the importer for compatible open-source theme packages:
+
+```bash
+node ../../scripts/import-external-theme.mjs --source /absolute/external-theme --mode auto
+```
+
+Supported formats:
+
+- `kongxcer555/codex-skin-builder` generated packages with `skin.json`.
+- `Fei-Away/Codex-Dream-Skin` preset directories with `theme.json` and a background image.
+
+Do not import screenshots that already contain Codex UI as wallpaper. Use them only as references for generating a clean background.
 
 ## Restore
 
