@@ -1,0 +1,39 @@
+{
+  "name": "codex-skin",
+  "version": "0.3.0",
+  "description": "Codex desktop skins and theme switching as a reusable Skill and plugin.",
+  "author": {
+    "name": "mcgfdata",
+    "email": "baixin.dev@gmail.com",
+    "url": "https://github.com/mcgfdata"
+  },
+  "homepage": "https://github.com/mcgfdata/codex-skin",
+  "repository": "https://github.com/mcgfdata/codex-skin",
+  "license": "Apache-2.0",
+  "keywords": [
+    "codex",
+    "skin",
+    "theme",
+    "desktop",
+    "skill"
+  ],
+  "skills": "skills",
+  "interface": {
+    "displayName": "Codex Skin",
+    "shortDescription": "Codex 桌面端皮肤和主题切换",
+    "longDescription": "给 macOS 和 Windows 的 Codex 桌面版应用皮肤、切换主题、生成新主题、导出主题包，并支持一键恢复原生界面。",
+    "developerName": "mcgfdata",
+    "category": "Productivity",
+    "capabilities": [
+      "Write",
+      "Interactive"
+    ],
+    "websiteURL": "https://github.com/mcgfdata/codex-skin",
+    "defaultPrompt": [
+      "Use $codex-skin 给 Codex 应用 dream 皮肤。",
+      "Use $codex-skin 切换到 tokyo-night 主题。",
+      "Use $codex-skin 关闭皮肤并恢复原生界面。"
+    ],
+    "brandColor": "#7AA2F7"
+  }
+}

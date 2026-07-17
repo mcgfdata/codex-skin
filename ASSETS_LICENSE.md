@@ -2,6 +2,8 @@
 
 The Apache License 2.0 covers the source code, Skill instructions, documentation, theme manifests, CSS, and JavaScript in this repository unless a file contains a different notice.
 
+The SVG previews in `assets/previews/` and the generic palette themes in `themes/palette.css` are original project assets covered by the repository license.
+
 It does not automatically cover:
 
 - Binary artwork and reference images, including PNG, JPEG, WebP, GIF, and similar files.

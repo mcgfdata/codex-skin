@@ -1,8 +1,8 @@
 (async (cssText, artDataUrl, theme) => {
-  const STATE_KEY = "__CODEDROBE_CODEX_SKIN_STATE__";
+  const STATE_KEY = "__CODEX_SKIN_STATE__";
   const STYLE_ID = "codex-skin-style";
   const CHROME_ID = "codex-skin-chrome";
-  window.__CODEDROBE_CODEX_SKIN_DISABLED__ = false;
+  window.__CODEX_SKIN_DISABLED__ = false;
 
   const previous = window[STATE_KEY];
   if (previous?.observer) previous.observer.disconnect();
@@ -33,7 +33,7 @@
   };
 
   const ensure = () => {
-    if (window.__CODEDROBE_CODEX_SKIN_DISABLED__) return;
+    if (window.__CODEX_SKIN_DISABLED__) return;
     const root = document.documentElement;
     if (!root) return;
     root.classList.add("codex-skin");
@@ -89,7 +89,7 @@
   };
 
   const cleanup = () => {
-    window.__CODEDROBE_CODEX_SKIN_DISABLED__ = true;
+    window.__CODEX_SKIN_DISABLED__ = true;
     document.documentElement?.classList.remove("codex-skin");
     if (document.documentElement) delete document.documentElement.dataset.codexSkinTheme;
     document.documentElement?.style.removeProperty("--dream-art");

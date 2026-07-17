@@ -1,6 +1,6 @@
 {
   "name": "codex-skin",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "A Codex Skill and cross-platform runtime for creating, applying, exporting, verifying, and restoring custom Codex desktop skins.",
   "type": "module",
   "license": "Apache-2.0",
@@ -9,6 +9,7 @@
     "NOTICE",
     "TRADEMARKS.md",
     "ASSETS_LICENSE.md",
+    ".codex-plugin",
     "README.md",
     "README.en.md",
     "SKILL.md",
@@ -17,6 +18,7 @@
     "evals",
     "references",
     "scripts",
+    "skills",
     "themes"
   ],
   "exports": {

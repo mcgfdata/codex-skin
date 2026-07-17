@@ -5,11 +5,11 @@ description: Apply, create, export, verify, repair, update, or restore custom sk
 
 # Codex Skin
 
-Apply reversible renderer themes through Chromium DevTools Protocol while launching the official Codex executable. Preserve the signed application package and user data. Use the bundled scripts for theme creation, launch, verification, export, repair, and restore.
+Apply reversible renderer themes through Chromium DevTools Protocol while launching the official Codex executable. Preserve the signed application package and user data. Use the bundled scripts for theme listing, switching, creation, launch, verification, export, repair, and restore.
 
 Compatibility: Windows 10/11 or macOS 12+, the official Codex desktop app, and a loopback CDP port. Direct script workflows require Node.js with global fetch and WebSocket.
 
-Runtime note: keep `LICENSE`, `NOTICE`, and asset notices intact when redistributing.
+Runtime note: keep `LICENSE`, `NOTICE`, and asset notices intact when redistributing. The repository also contains `.codex-plugin/plugin.json`, so it can be indexed as a plugin that exposes this Skill.
 
 ## Choose the control surface
 
@@ -25,6 +25,10 @@ Runtime note: keep `LICENSE`, `NOTICE`, and asset notices intact when redistribu
 3. If the user asks for direct activation and authorizes restarting Codex, use `scripts/restart-skin.*`; otherwise tell the user to double-click the generated restart launcher after saving current work.
 4. Run platform verification with an absolute screenshot path. Treat a missing native home hero, native suggestion cards, composer, sidebar, theme marker, or matching theme version as failure.
 5. Inspect both the home screen and a normal task against `references/qa-inventory.md`.
+
+Bundled theme IDs: `catppuccin-mocha`, `dilraba-rose`, `dracula`, `dream`, `github-light`, `kun-stage`, `matrix-green`, `nord-aurora`, `ocean-calm`, `rose-pine`, `solarized-light`, and `tokyo-night`.
+
+When the user asks what themes are available, list the IDs above and point them to `README.md` for the preview gallery.
 
 Windows:
 
@@ -115,5 +119,6 @@ scripts/restore-skin.sh --uninstall --restore-base-theme
 - `scripts/injector.mjs`: cross-platform CDP connection, injection, verification, screenshot, and removal.
 - `assets/renderer-inject.js`: idempotent DOM integration and cleanup.
 - `references/theme-schema.md`: manifest contract and AI customization boundaries.
+- `references/theme-catalog.md`: bundled theme directions and selection rules.
 - `references/runtime-notes.md`: CLI and shared cross-platform runtime behavior and troubleshooting.
 - `references/qa-inventory.md`: CLI, desktop, package, functional, and visual signoff coverage.

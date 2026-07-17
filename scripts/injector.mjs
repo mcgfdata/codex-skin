@@ -163,8 +163,8 @@ async function applyToSession(session, payload) {
 
 async function removeFromSession(session) {
   return session.evaluate(`(() => {
-    window.__CODEDROBE_CODEX_SKIN_DISABLED__ = true;
-    const state = window.__CODEDROBE_CODEX_SKIN_STATE__;
+    window.__CODEX_SKIN_DISABLED__ = true;
+    const state = window.__CODEX_SKIN_STATE__;
     if (state?.cleanup) return state.cleanup();
     document.documentElement?.classList.remove('codex-skin');
     document.documentElement?.style.removeProperty('--dream-art');
@@ -188,8 +188,8 @@ async function verifySession(session, expectedTheme = null) {
     const cards = suggestions ? [...suggestions.querySelectorAll('button')].map(box) : [];
     const result = {
       installed: document.documentElement.classList.contains('codex-skin'),
-      themeId: window.__CODEDROBE_CODEX_SKIN_STATE__?.themeId ?? null,
-      version: window.__CODEDROBE_CODEX_SKIN_STATE__?.version ?? null,
+      themeId: window.__CODEX_SKIN_STATE__?.themeId ?? null,
+      version: window.__CODEX_SKIN_STATE__?.version ?? null,
       stylePresent: Boolean(document.getElementById('codex-skin-style')),
       chromePresent: Boolean(document.getElementById('codex-skin-chrome')),
       chromePointerEvents: getComputedStyle(document.getElementById('codex-skin-chrome') || document.body).pointerEvents,

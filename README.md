@@ -2,15 +2,15 @@
 
 [English](README.en.md)
 
-这是一个给 Codex 桌面版换皮肤的 Skill。它可以应用现成皮肤，也可以根据图片、配色或文字描述做新的皮肤包。
+这是一个给 Codex 桌面版换皮肤的 Skill，也带有 Codex Plugin manifest。它可以应用现成皮肤、切换不同主题，也可以根据图片、配色或文字描述做新的皮肤包。
 
 它的实现方式比较克制：通过本机的 Chromium DevTools Protocol 给 Codex 渲染层加样式，不改官方应用包，不替换可执行文件，也不动 `app.asar`。
 
-本项目使用 Apache-2.0 许可。后续开源时保留 `LICENSE` 和 `NOTICE` 文件。
+本项目使用 Apache-2.0 许可。发布和转载时保留 `LICENSE` 和 `NOTICE` 文件。
 
 ## 能做什么
 
-- 给 Codex 应用内置皮肤。
+- 给 Codex 应用内置皮肤，并在不同主题之间切换。
 - 按图片、风格描述或配色创建新皮肤。
 - 导出 `.codex-theme` 主题包。
 - 截图验证当前皮肤是否生效。
@@ -18,17 +18,37 @@
 
 当前内置皮肤：
 
-- `dream`
-- `kun-stage`
+- `catppuccin-mocha`
 - `dilraba-rose`
+- `dracula`
+- `dream`
+- `github-light`
+- `kun-stage`
+- `matrix-green`
+- `nord-aurora`
+- `ocean-calm`
+- `rose-pine`
+- `solarized-light`
+- `tokyo-night`
+
+主题整理参考了常见编辑器、终端和 GitHub 开源主题的配色方向。仓库里的主题 CSS 和预览图均为本项目重新制作，不包含第三方 Logo、截图或品牌素材。
 
 ## 主题效果
 
 | 主题 | 预览 |
 | --- | --- |
-| `dream` | ![dream 主题效果](assets/previews/dream.svg) |
-| `kun-stage` | ![kun-stage 主题效果](assets/previews/kun-stage.svg) |
+| `catppuccin-mocha` | ![catppuccin-mocha 主题效果](assets/previews/catppuccin-mocha.svg) |
 | `dilraba-rose` | ![dilraba-rose 主题效果](assets/previews/dilraba-rose.svg) |
+| `dracula` | ![dracula 主题效果](assets/previews/dracula.svg) |
+| `dream` | ![dream 主题效果](assets/previews/dream.svg) |
+| `github-light` | ![github-light 主题效果](assets/previews/github-light.svg) |
+| `kun-stage` | ![kun-stage 主题效果](assets/previews/kun-stage.svg) |
+| `matrix-green` | ![matrix-green 主题效果](assets/previews/matrix-green.svg) |
+| `nord-aurora` | ![nord-aurora 主题效果](assets/previews/nord-aurora.svg) |
+| `ocean-calm` | ![ocean-calm 主题效果](assets/previews/ocean-calm.svg) |
+| `rose-pine` | ![rose-pine 主题效果](assets/previews/rose-pine.svg) |
+| `solarized-light` | ![solarized-light 主题效果](assets/previews/solarized-light.svg) |
+| `tokyo-night` | ![tokyo-night 主题效果](assets/previews/tokyo-night.svg) |
 
 ## 环境要求
 
@@ -57,6 +77,16 @@ Use $codex-skin 给 Codex 应用 dream 皮肤。
 ```text
 Use $codex-skin 根据这张图做一个新的 Codex 皮肤。
 Use $codex-skin 关闭皮肤，恢复原生界面。
+```
+
+## 作为 Plugin 发布
+
+仓库根目录包含 `.codex-plugin/plugin.json`。发布到插件市场或被插件市场索引时，这个 manifest 会把当前目录声明为 `codex-skin` Skill。
+
+本地开发时可以用插件校验脚本检查：
+
+```bash
+python3 /Users/mobvista/.codex/skills/.system/plugin-creator/scripts/validate_plugin.py /path/to/codex-skin
 ```
 
 ## 使用皮肤
@@ -100,9 +130,18 @@ scripts/restart-skin.sh --theme kun-stage
 
 当前内置主题名：
 
-- `dream`
-- `kun-stage`
+- `catppuccin-mocha`
 - `dilraba-rose`
+- `dracula`
+- `dream`
+- `github-light`
+- `kun-stage`
+- `matrix-green`
+- `nord-aurora`
+- `ocean-calm`
+- `rose-pine`
+- `solarized-light`
+- `tokyo-night`
 
 ## 移除皮肤
 

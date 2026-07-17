@@ -2,7 +2,7 @@
 
 [简体中文](README.md)
 
-Codex Skin is a Codex Skill for applying and building custom skins for the official Codex desktop app on macOS and Windows.
+Codex Skin is a Codex Skill with a Codex Plugin manifest for applying, switching, and building custom skins for the official Codex desktop app on macOS and Windows.
 
 It uses a local Chromium DevTools Protocol connection to decorate the renderer. It does not patch the app bundle, replace the official executable, or modify `app.asar`.
 
@@ -10,7 +10,7 @@ This repository is released under Apache-2.0. Keep the license and notice files 
 
 ## What It Does
 
-- Apply one of the bundled skins to Codex.
+- Apply one of the bundled skins to Codex and switch between themes.
 - Create a new skin from a visual brief or local reference image.
 - Export a portable `.codex-theme` package.
 - Verify the active skin and capture a screenshot.
@@ -18,17 +18,37 @@ This repository is released under Apache-2.0. Keep the license and notice files 
 
 Bundled skins:
 
-- `dream`
-- `kun-stage`
+- `catppuccin-mocha`
 - `dilraba-rose`
+- `dracula`
+- `dream`
+- `github-light`
+- `kun-stage`
+- `matrix-green`
+- `nord-aurora`
+- `ocean-calm`
+- `rose-pine`
+- `solarized-light`
+- `tokyo-night`
+
+The catalog is based on common editor, terminal, and GitHub theme directions. The CSS and preview images in this repository are original project assets and do not include third-party logos, screenshots, or brand artwork.
 
 ## Theme Gallery
 
 | Theme | Preview |
 | --- | --- |
-| `dream` | ![dream theme preview](assets/previews/dream.svg) |
-| `kun-stage` | ![kun-stage theme preview](assets/previews/kun-stage.svg) |
+| `catppuccin-mocha` | ![catppuccin-mocha theme preview](assets/previews/catppuccin-mocha.svg) |
 | `dilraba-rose` | ![dilraba-rose theme preview](assets/previews/dilraba-rose.svg) |
+| `dracula` | ![dracula theme preview](assets/previews/dracula.svg) |
+| `dream` | ![dream theme preview](assets/previews/dream.svg) |
+| `github-light` | ![github-light theme preview](assets/previews/github-light.svg) |
+| `kun-stage` | ![kun-stage theme preview](assets/previews/kun-stage.svg) |
+| `matrix-green` | ![matrix-green theme preview](assets/previews/matrix-green.svg) |
+| `nord-aurora` | ![nord-aurora theme preview](assets/previews/nord-aurora.svg) |
+| `ocean-calm` | ![ocean-calm theme preview](assets/previews/ocean-calm.svg) |
+| `rose-pine` | ![rose-pine theme preview](assets/previews/rose-pine.svg) |
+| `solarized-light` | ![solarized-light theme preview](assets/previews/solarized-light.svg) |
+| `tokyo-night` | ![tokyo-night theme preview](assets/previews/tokyo-night.svg) |
 
 ## Requirements
 
@@ -50,6 +70,16 @@ Then ask Codex:
 
 ```text
 Use $codex-skin to apply the dream skin to Codex.
+```
+
+## Publish As A Plugin
+
+The repository root contains `.codex-plugin/plugin.json`. When the repository is added to a plugin marketplace or indexed by one, the manifest exposes this folder as the `codex-skin` Skill.
+
+For local development, validate the plugin manifest with:
+
+```bash
+python3 /Users/mobvista/.codex/skills/.system/plugin-creator/scripts/validate_plugin.py /path/to/codex-skin
 ```
 
 ## Use A Skin
@@ -91,9 +121,18 @@ scripts/restart-skin.sh --theme kun-stage
 
 Bundled theme names:
 
-- `dream`
-- `kun-stage`
+- `catppuccin-mocha`
 - `dilraba-rose`
+- `dracula`
+- `dream`
+- `github-light`
+- `kun-stage`
+- `matrix-green`
+- `nord-aurora`
+- `ocean-calm`
+- `rose-pine`
+- `solarized-light`
+- `tokyo-night`
 
 ## Remove A Skin
 

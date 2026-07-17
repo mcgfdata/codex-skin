@@ -14,12 +14,28 @@ const themeIds = (await fs.readdir(path.join(skillRoot, "themes")))
   .filter((entry) => entry.endsWith(".json"))
   .map((entry) => entry.slice(0, -5))
   .sort();
-assert.deepEqual(themeIds, ["dilraba-rose", "dream", "kun-stage"]);
+const requiredThemeIds = [
+  "catppuccin-mocha",
+  "dilraba-rose",
+  "dracula",
+  "dream",
+  "github-light",
+  "kun-stage",
+  "matrix-green",
+  "nord-aurora",
+  "ocean-calm",
+  "rose-pine",
+  "solarized-light",
+  "tokyo-night",
+];
+assert.deepEqual(themeIds, requiredThemeIds);
 
 for (const themeId of themeIds) {
   const candidate = await loadTheme(themeId);
   const candidateCss = await fs.readFile(candidate.cssPath, "utf8");
   assert.ok(candidateCss.length > 1_000, `${themeId} CSS should contain a complete theme`);
+  const previewPath = path.join(skillRoot, "assets", "previews", `${themeId}.svg`);
+  await fs.access(previewPath);
   const packaged = await buildThemePackage(themeId);
   assert.equal(packaged.bundle.manifest.id, themeId);
   assert.equal(packaged.bundle.manifest.css, "theme.css");
@@ -84,7 +100,9 @@ const payload = template
   .replace("__DREAM_THEME_JSON__", JSON.stringify(publicTheme));
 assert.doesNotMatch(payload, /__DREAM_(?:CSS|ART|THEME)_JSON__/);
 assert.match(payload, /codex-skin/);
-assert.match(payload, /CODEDROBE_CODEX_SKIN/);
+assert.match(payload, /CODEX_SKIN/);
+const staleStatePrefix = "CODE" + "DROBE";
+assert.doesNotMatch(payload, new RegExp(`${staleStatePrefix}_CODEX_SKIN`));
 new vm.Script(payload);
 
 const { bundle, serialized } = await buildThemePackage("dream");
