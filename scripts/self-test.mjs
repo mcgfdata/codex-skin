@@ -3,18 +3,19 @@ import fs from "node:fs/promises";
 import os from "node:os";
 import path from "node:path";
 import vm from "node:vm";
-import { applySettings, buildBaseThemeSettings, loadTheme, restoreSettings, skillRoot } from "./theme-lib.mjs";
+import { DEFAULT_THEME, applySettings, buildBaseThemeSettings, loadTheme, restoreSettings, skillRoot } from "./theme-lib.mjs";
 import { buildThemePackage } from "./theme-package.mjs";
 
-const theme = await loadTheme("dream");
-assert.equal(theme.id, "dream");
-assert.equal(theme.version, "1.1.0");
+const theme = await loadTheme();
+assert.equal(DEFAULT_THEME, "salary-cat");
+assert.equal(theme.id, "salary-cat");
+assert.equal(theme.version, "1.0.0");
 
 const themeIds = (await fs.readdir(path.join(skillRoot, "themes")))
   .filter((entry) => entry.endsWith(".json"))
   .map((entry) => entry.slice(0, -5))
   .sort();
-const requiredThemeIds = ["dilraba-rose", "dream", "kun-stage"];
+const requiredThemeIds = ["dilraba-rose", "dream", "kun-stage", "salary-cat"];
 for (const required of requiredThemeIds) assert.ok(themeIds.includes(required), `missing required theme ${required}`);
 const archivedThemeIds = [
   "catppuccin-mocha",
@@ -107,11 +108,11 @@ const staleStatePrefix = "CODE" + "DROBE";
 assert.doesNotMatch(payload, new RegExp(`${staleStatePrefix}_CODEX_SKIN`));
 new vm.Script(payload);
 
-const { bundle, serialized } = await buildThemePackage("dream");
+const { bundle, serialized } = await buildThemePackage();
 assert.equal(bundle.format, "codex-theme");
 assert.equal(bundle.schemaVersion, 1);
 assert.equal(bundle.manifest.css, "theme.css");
-assert.equal(bundle.art?.mimeType, "image/png");
+assert.equal(bundle.art?.mimeType, "image/gif");
 assert.ok(bundle.art?.base64.length > 0);
 assert.match(serialized, /"format": "codex-theme"/);
 

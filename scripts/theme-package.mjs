@@ -1,6 +1,6 @@
 import fs from "node:fs/promises";
 import path from "node:path";
-import { loadTheme } from "./theme-lib.mjs";
+import { DEFAULT_THEME, loadTheme } from "./theme-lib.mjs";
 
 export const MAX_THEME_PACKAGE_BYTES = 30 * 1024 * 1024;
 const REMOTE_CSS = /@import\s|url\(\s*["']?(?!data:)/i;
@@ -20,7 +20,7 @@ function safeAssetName(filename, fallback = "art.png") {
   return basename || fallback;
 }
 
-export async function buildThemePackage(themeRef = "dream") {
+export async function buildThemePackage(themeRef = DEFAULT_THEME) {
   const theme = await loadTheme(themeRef);
   const [rawManifest, css] = await Promise.all([
     fs.readFile(theme.manifestPath, "utf8").then(JSON.parse),

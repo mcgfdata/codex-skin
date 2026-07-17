@@ -101,8 +101,7 @@ function baseColorsFor(detected) {
   );
 }
 
-function cssForTheme(id, colors, artRelativePath) {
-  const art = quoteCssUrl(artRelativePath);
+function cssForTheme(id, colors) {
   return `:root.codex-skin[data-codex-skin-theme="${id}"] {
   color-scheme: ${colors.background === "#fff7fb" || colors.background === "#ffffff" ? "light" : "dark"} !important;
   --skin-bg: ${colors.background};
@@ -138,8 +137,7 @@ function cssForTheme(id, colors, artRelativePath) {
 html.codex-skin[data-codex-skin-theme="${id}"] body {
   background:
     linear-gradient(90deg, color-mix(in srgb, var(--skin-panel) 94%, transparent) 0%, color-mix(in srgb, var(--skin-panel) 70%, transparent) 42%, color-mix(in srgb, var(--skin-bg) 22%, transparent) 100%),
-    var(--dream-art),
-    url("${art}") !important;
+    var(--dream-art) !important;
   background-size: cover !important;
   background-position: center right !important;
   background-attachment: fixed !important;
@@ -157,8 +155,7 @@ html.codex-skin[data-codex-skin-theme="${id}"] aside.app-shell-left-panel {
 html.codex-skin[data-codex-skin-theme="${id}"] main.main-surface {
   background:
     linear-gradient(90deg, color-mix(in srgb, var(--skin-panel) 88%, transparent), color-mix(in srgb, var(--skin-bg) 36%, transparent)),
-    var(--dream-art),
-    url("${art}") !important;
+    var(--dream-art) !important;
   background-size: cover !important;
   background-position: center right !important;
   border-left: 1px solid var(--skin-line) !important;
@@ -289,8 +286,7 @@ await fs.copyFile(imagePath, artTarget);
 const colors = baseColorsFor(detected);
 const artManifestPath = path.relative(themeDir, artTarget).split(path.sep).join("/");
 const cssName = `${id}.css`;
-const cssArtPath = path.relative(themeDir, artTarget).split(path.sep).join("/");
-await fs.writeFile(cssTarget, cssForTheme(id, colors, cssArtPath), "utf8");
+await fs.writeFile(cssTarget, cssForTheme(id, colors), "utf8");
 await fs.writeFile(manifestTarget, `${JSON.stringify(manifestFor(id, displayName, detected, artManifestPath, cssName, colors), null, 2)}\n`, "utf8");
 
 console.log(JSON.stringify({

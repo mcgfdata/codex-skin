@@ -1,6 +1,6 @@
 [CmdletBinding()]
 param(
-  [string]$Theme = "dream",
+  [string]$Theme = "salary-cat",
   [int]$Port = 9335
 )
 

@@ -2,7 +2,7 @@
 set -euo pipefail
 
 SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
-THEME="dream"
+THEME="salary-cat"
 PORT="9335"
 DESKTOP_DIR="$HOME/Desktop"
 

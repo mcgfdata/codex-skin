@@ -6,6 +6,7 @@ This catalog records theme directions used by `codex-skin`. The project does not
 
 | ID | Direction | Notes |
 | --- | --- | --- |
+| `salary-cat` | Monthly Salary Cat / default | Converted from `kongxcer555/codex-skin-builder` reference skin. |
 | `dream` | Existing custom skin | Image-backed light theme. |
 | `kun-stage` | Existing custom skin | Image-backed dark stage theme. |
 | `dilraba-rose` | Existing custom skin | Image-backed rose light theme. |

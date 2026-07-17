@@ -30,7 +30,7 @@
     ],
     "websiteURL": "https://github.com/mcgfdata/codex-skin",
     "defaultPrompt": [
-      "Use $codex-skin 给 Codex 应用 dream 皮肤。",
+      "Use $codex-skin 安装 codex-skin，使用默认月薪喵主题。",
       "Use $codex-skin 切换到 tokyo-night 主题。",
       "Use $codex-skin 关闭皮肤并恢复原生界面。"
     ],

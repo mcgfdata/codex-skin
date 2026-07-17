@@ -7,7 +7,7 @@ STATE_ROOT="$HOME/Library/Application Support/Codex Skin"
 CONFIG_PATH="$HOME/.codex/config.toml"
 BACKUP_PATH="$STATE_ROOT/config.before-codex-skin.toml"
 PORT=9335
-THEME=dream
+THEME=salary-cat
 NO_SHORTCUTS=0
 
 while [[ $# -gt 0 ]]; do

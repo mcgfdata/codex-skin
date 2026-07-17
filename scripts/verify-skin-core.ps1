@@ -1,7 +1,7 @@
 [CmdletBinding()]
 param(
   [int]$Port = 9335,
-  [string]$Theme = 'dream',
+  [string]$Theme = 'salary-cat',
   [string]$ScreenshotPath
 )
 

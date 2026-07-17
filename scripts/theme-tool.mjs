@@ -1,10 +1,10 @@
 import fs from "node:fs/promises";
 import path from "node:path";
-import { applySettings, buildBaseThemeSettings, loadTheme, restoreSettings } from "./theme-lib.mjs";
+import { DEFAULT_THEME, applySettings, buildBaseThemeSettings, loadTheme, restoreSettings } from "./theme-lib.mjs";
 
 function parseArgs(argv) {
   const command = argv.shift() ?? "info";
-  const options = { command, theme: "dream", platform: process.platform };
+  const options = { command, theme: DEFAULT_THEME, platform: process.platform };
   for (let i = 0; i < argv.length; i += 1) {
     const arg = argv[i];
     if (arg === "--theme") options.theme = argv[++i];

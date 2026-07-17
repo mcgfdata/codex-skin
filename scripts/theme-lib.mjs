@@ -4,6 +4,7 @@ import { fileURLToPath } from "node:url";
 
 const here = path.dirname(fileURLToPath(import.meta.url));
 export const skillRoot = path.resolve(here, "..");
+export const DEFAULT_THEME = "salary-cat";
 
 const defaultCopy = {
   brandTitle: "Codex 自定义皮肤",
@@ -19,7 +20,7 @@ function isNamedTheme(value) {
   return /^[a-z0-9][a-z0-9_-]*$/i.test(value);
 }
 
-export function resolveThemeManifest(theme = "dream") {
+export function resolveThemeManifest(theme = DEFAULT_THEME) {
   if (isNamedTheme(theme)) return path.join(skillRoot, "themes", `${theme}.json`);
   return path.resolve(theme);
 }
@@ -28,7 +29,7 @@ function assertString(value, label) {
   if (typeof value !== "string" || !value.trim()) throw new Error(`${label} must be a non-empty string`);
 }
 
-export async function loadTheme(theme = "dream") {
+export async function loadTheme(theme = DEFAULT_THEME) {
   const manifestPath = resolveThemeManifest(theme);
   const raw = JSON.parse(await fs.readFile(manifestPath, "utf8"));
   if (raw.schemaVersion !== 1) throw new Error(`Unsupported theme schemaVersion in ${manifestPath}`);

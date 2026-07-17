@@ -1,9 +1,10 @@
 import fs from "node:fs/promises";
 import path from "node:path";
+import { DEFAULT_THEME } from "./theme-lib.mjs";
 import { buildThemePackage } from "./theme-package.mjs";
 
 function parseArgs(argv) {
-  const options = { theme: "dream", output: null, force: false };
+  const options = { theme: DEFAULT_THEME, output: null, force: false };
   for (let index = 0; index < argv.length; index += 1) {
     const arg = argv[index];
     if (arg === "--theme") {

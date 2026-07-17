@@ -21,18 +21,18 @@ This is the plugin entry for `codex-skin`. The runtime root is two directories a
 
 Use the same workflows as the root `SKILL.md`. Prefer script execution over rewriting logic in chat.
 
-Bundled theme IDs: `dilraba-rose`, `dream`, and `kun-stage`. Earlier generated generic themes are archived under `../../backups/generated-themes/`.
+Bundled theme IDs: `salary-cat` (default), `dilraba-rose`, `dream`, and `kun-stage`. Earlier generated generic themes are archived under `../../backups/generated-themes/`.
 
 ## Apply or switch a theme
 
-Use `dream` when the user does not request a specific theme. To apply and create desktop launchers:
+Use `salary-cat` when the user does not request a specific theme. To apply and create desktop launchers:
 
 ```bash
-../../scripts/setup-skin.sh --theme dream
+../../scripts/setup-skin.sh
 ```
 
 ```powershell
-..\..\scripts\setup-skin.ps1 -Theme dream
+..\..\scripts\setup-skin.ps1
 ```
 
 To switch themes after setup:

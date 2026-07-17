@@ -4,6 +4,8 @@ The Apache License 2.0 covers the source code, Skill instructions, documentation
 
 The SVG previews in `assets/previews/` and the generic palette themes in `themes/palette.css` are original project assets covered by the repository license.
 
+`assets/imported/salary-cat/` is derived from the `codex-skin-builder` reference skin by `kongxcer555`. Keep the attribution and rights notes in `THIRD_PARTY_NOTICES.md` when redistributing this repository.
+
 It does not automatically cover:
 
 - Binary artwork and reference images, including PNG, JPEG, WebP, GIF, and similar files.

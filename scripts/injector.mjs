@@ -1,13 +1,13 @@
 import fs from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
-import { loadTheme } from "./theme-lib.mjs";
+import { DEFAULT_THEME, loadTheme } from "./theme-lib.mjs";
 
 const here = path.dirname(fileURLToPath(import.meta.url));
 const root = path.resolve(here, "..");
 
 function parseArgs(argv) {
-  const options = { port: 9335, mode: "watch", timeoutMs: 30000, screenshot: null, reload: false, theme: "dream" };
+  const options = { port: 9335, mode: "watch", timeoutMs: 30000, screenshot: null, reload: false, theme: DEFAULT_THEME };
   for (let i = 0; i < argv.length; i += 1) {
     const arg = argv[i];
     if (arg === "--port") options.port = Number(argv[++i]);

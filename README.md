@@ -18,6 +18,7 @@
 
 当前内置皮肤：
 
+- `salary-cat`（默认）
 - `dilraba-rose`
 - `dream`
 - `kun-stage`
@@ -28,6 +29,7 @@
 
 | 主题 | 预览 |
 | --- | --- |
+| `salary-cat` | ![salary-cat 月薪喵主题效果](assets/imported/salary-cat/salary-cat-hero.gif) |
 | `dilraba-rose` | ![dilraba-rose 主题效果](assets/previews/dilraba-rose.svg) |
 | `dream` | ![dream 主题效果](assets/previews/dream.svg) |
 | `kun-stage` | ![kun-stage 主题效果](assets/previews/kun-stage.svg) |
@@ -86,10 +88,10 @@ mkdir -p ~/.codex/skills
 cp -R /path/to/codex-skin ~/.codex/skills/codex-skin
 ```
 
-然后在 Codex 里直接说：
+然后在 Codex 里直接说。只要不指定主题，默认就是 `salary-cat` 月薪喵：
 
 ```text
-Use $codex-skin 给 Codex 应用 dream 皮肤。
+Use $codex-skin 安装 codex-skin。
 ```
 
 也可以说：
@@ -117,14 +119,14 @@ macOS：
 
 ```bash
 cd /path/to/codex-skin
-scripts/setup-skin.sh --theme dream
+scripts/setup-skin.sh
 ```
 
 Windows：
 
 ```powershell
 cd C:\path\to\codex-skin
-scripts\setup-skin.ps1 -Theme dream
+scripts\setup-skin.ps1
 ```
 
 执行完成后，桌面会出现：
@@ -138,7 +140,7 @@ scripts\setup-skin.ps1 -Theme dream
 也可以不用桌面入口，直接运行：
 
 ```bash
-scripts/restart-skin.sh --theme dream
+scripts/restart-skin.sh
 ```
 
 换皮肤只需要把主题名换掉：
@@ -150,6 +152,7 @@ scripts/restart-skin.sh --theme kun-stage
 
 当前内置主题名：
 
+- `salary-cat`（默认）
 - `dilraba-rose`
 - `dream`
 - `kun-stage`
@@ -184,14 +187,14 @@ scripts\restore-skin.ps1 -Uninstall -RestoreBaseTheme
 如果不想生成桌面入口，可以手动安装和启动：
 
 ```bash
-scripts/install-skin.sh --theme dream
-scripts/start-skin.sh --theme dream
+scripts/install-skin.sh
+scripts/start-skin.sh
 ```
 
 如果 Codex 已经打开，而且不是通过皮肤脚本启动的：
 
 ```bash
-scripts/start-skin.sh --theme dream --restart-existing
+scripts/start-skin.sh --restart-existing
 ```
 
 ## 做一个新皮肤

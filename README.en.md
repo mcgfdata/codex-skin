@@ -18,6 +18,7 @@ This repository is released under Apache-2.0. Keep the license and notice files 
 
 Bundled skins:
 
+- `salary-cat` (default)
 - `dilraba-rose`
 - `dream`
 - `kun-stage`
@@ -28,6 +29,7 @@ The previous generic engineering themes have been moved to `backups/generated-th
 
 | Theme | Preview |
 | --- | --- |
+| `salary-cat` | ![salary-cat theme preview](assets/imported/salary-cat/salary-cat-hero.gif) |
 | `dilraba-rose` | ![dilraba-rose theme preview](assets/previews/dilraba-rose.svg) |
 | `dream` | ![dream theme preview](assets/previews/dream.svg) |
 | `kun-stage` | ![kun-stage theme preview](assets/previews/kun-stage.svg) |
@@ -86,10 +88,10 @@ mkdir -p ~/.codex/skills
 cp -R /path/to/codex-skin ~/.codex/skills/codex-skin
 ```
 
-Then ask Codex:
+Then ask Codex. When no theme is specified, Codex Skin uses `salary-cat` by default:
 
 ```text
-Use $codex-skin to apply the dream skin to Codex.
+Use $codex-skin to install codex-skin.
 ```
 
 ## Publish As A Plugin
@@ -110,14 +112,14 @@ macOS:
 
 ```bash
 cd /path/to/codex-skin
-scripts/setup-skin.sh --theme dream
+scripts/setup-skin.sh
 ```
 
 Windows:
 
 ```powershell
 cd C:\path\to\codex-skin
-scripts\setup-skin.ps1 -Theme dream
+scripts\setup-skin.ps1
 ```
 
 After setup, the desktop contains:
@@ -129,7 +131,7 @@ After setup, the desktop contains:
 If Codex is already running, save your current work and use the restart launcher. You can also run it from the terminal:
 
 ```bash
-scripts/restart-skin.sh --theme dream
+scripts/restart-skin.sh
 ```
 
 To switch skins, change the theme name:
@@ -141,6 +143,7 @@ scripts/restart-skin.sh --theme kun-stage
 
 Bundled theme names:
 
+- `salary-cat` (default)
 - `dilraba-rose`
 - `dream`
 - `kun-stage`
@@ -175,14 +178,14 @@ If the restore command says no backup is available, run the command without the 
 To avoid desktop launchers, install and start manually:
 
 ```bash
-scripts/install-skin.sh --theme dream
-scripts/start-skin.sh --theme dream
+scripts/install-skin.sh
+scripts/start-skin.sh
 ```
 
 If Codex is already running without the debug port:
 
 ```bash
-scripts/start-skin.sh --theme dream --restart-existing
+scripts/start-skin.sh --restart-existing
 ```
 
 ## Create A New Skin

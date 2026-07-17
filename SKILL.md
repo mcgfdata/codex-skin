@@ -20,13 +20,13 @@ Runtime note: keep `LICENSE`, `NOTICE`, and asset notices intact when redistribu
 
 ### Apply an existing theme
 
-1. Resolve the theme name from `themes/<name>.json`; use `dream` when the user did not request another theme.
+1. Resolve the theme name from `themes/<name>.json`; use `salary-cat` when the user did not request another theme.
 2. Prefer `scripts/setup-skin.*` for a one-command setup. It applies matching official base colors and creates launch, restart, and restore desktop entries.
 3. If the user asks for direct activation and authorizes restarting Codex, use `scripts/restart-skin.*`; otherwise tell the user to double-click the generated restart launcher after saving current work.
 4. Run platform verification with an absolute screenshot path. Treat a missing native home hero, native suggestion cards, composer, sidebar, theme marker, or matching theme version as failure.
 5. Inspect both the home screen and a normal task against `references/qa-inventory.md`.
 
-Bundled theme IDs: `dilraba-rose`, `dream`, and `kun-stage`. Generated generic themes from an earlier pass live under `backups/generated-themes/` only; do not present them as current built-ins unless the user asks to restore one.
+Bundled theme IDs: `salary-cat` (default), `dilraba-rose`, `dream`, and `kun-stage`. Generated generic themes from an earlier pass live under `backups/generated-themes/` only; do not present them as current built-ins unless the user asks to restore one.
 
 When the user asks what themes are available, list the IDs above and point them to `README.md` for the preview gallery.
 
@@ -51,17 +51,17 @@ Do not import Codex UI screenshots as wallpapers. If an image already includes a
 Windows:
 
 ```powershell
-scripts/setup-skin.ps1 -Theme dream
-scripts/restart-skin.ps1 -Theme dream
-scripts/verify-skin.ps1 -Theme dream -ScreenshotPath C:\absolute\dream.png
+scripts/setup-skin.ps1
+scripts/restart-skin.ps1
+scripts/verify-skin.ps1 -ScreenshotPath C:\absolute\salary-cat.png
 ```
 
 macOS:
 
 ```bash
-scripts/setup-skin.sh --theme dream
-scripts/restart-skin.sh --theme dream
-scripts/verify-skin.sh --theme dream --screenshot /absolute/dream.png
+scripts/setup-skin.sh
+scripts/restart-skin.sh
+scripts/verify-skin.sh --screenshot /absolute/salary-cat.png
 ```
 
 ### Create a theme with AI
