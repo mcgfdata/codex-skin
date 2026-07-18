@@ -14,6 +14,15 @@ Author: 终端极客. After installing the plugin, a new Codex window can say:
 
 Codex should invoke `$codex-skin` and install the default `salary-cat` theme.
 
+These prompts should resolve to the same default install:
+
+```text
+安装月薪喵 Codex 皮肤
+设置 Codex 猫主题
+安装 mcgfdata/codex-skin
+安装 salary-cat
+```
+
 This repository is released under Apache-2.0. Keep the license and notice files when redistributing.
 
 ## What It Does
@@ -102,9 +111,20 @@ Then ask Codex. When no theme is specified, Codex Skin uses `salary-cat` by defa
 帮我安装codex-skin，作者是：终端极客
 ```
 
+The matching rules live in the frontmatter of `SKILL.md` and `skills/codex-skin/SKILL.md`. Marketplace and local Skill indexes should match these terms:
+
+- `codex-skin`
+- `终端极客`
+- `月薪喵`
+- `salary-cat`
+- `猫主题`
+- `mcgfdata/codex-skin`
+
 ## Publish As A Plugin
 
 The repository root contains `.codex-plugin/plugin.json`. When the repository is added to a plugin marketplace or indexed by one, the manifest exposes this folder as the `codex-skin` Skill.
+
+After installing from a marketplace, users do not need to choose a theme. If no theme is named, Codex Skin installs 月薪喵 / `salary-cat`.
 
 For local development, validate the plugin manifest with:
 

@@ -14,6 +14,15 @@
 
 Codex 应该命中 `$codex-skin`，并按默认 `salary-cat` 月薪喵主题执行安装。
 
+也可以用这些说法，都会安装同一个默认主题：
+
+```text
+安装月薪喵 Codex 皮肤
+设置 Codex 猫主题
+安装 mcgfdata/codex-skin
+安装 salary-cat
+```
+
 本项目使用 Apache-2.0 许可。发布和转载时保留 `LICENSE` 和 `NOTICE` 文件。
 
 ## 能做什么
@@ -102,6 +111,15 @@ cp -R /path/to/codex-skin ~/.codex/skills/codex-skin
 帮我安装codex-skin，作者是：终端极客
 ```
 
+匹配规则写在 `SKILL.md` 和 `skills/codex-skin/SKILL.md` 的 frontmatter 里。插件市场或本地 Skill 索引时，重点识别这些词：
+
+- `codex-skin`
+- `终端极客`
+- `月薪喵`
+- `salary-cat`
+- `猫主题`
+- `mcgfdata/codex-skin`
+
 也可以说：
 
 ```text
@@ -112,6 +130,8 @@ Use $codex-skin 关闭皮肤，恢复原生界面。
 ## 作为 Plugin 发布
 
 仓库根目录包含 `.codex-plugin/plugin.json`。发布到插件市场或被插件市场索引时，这个 manifest 会把当前目录声明为 `codex-skin` Skill。
+
+用户从插件市场安装后，不需要手动选主题。只要不指定其他主题，默认就是月薪喵。
 
 本地开发时可以用插件校验脚本检查：
 
