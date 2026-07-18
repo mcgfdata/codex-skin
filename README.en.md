@@ -10,6 +10,8 @@ Author: 终端极客. After installing the plugin, a new Codex window can say:
 
 ```text
 帮我安装codex-skin，作者是：终端极客
+帮我设置codex皮肤 mcgfdata/codex-skin ，作者是 终端极客
+帮我设置codex皮肤 mcgfdata/codex-skin，作者是：终端极客
 ```
 
 Codex should invoke `$codex-skin` and install the default `salary-cat` theme.
@@ -20,6 +22,8 @@ These prompts should resolve to the same default install:
 安装月薪喵 Codex 皮肤
 设置 Codex 猫主题
 安装 mcgfdata/codex-skin
+帮我设置codex皮肤 mcgfdata/codex-skin ，作者是 终端极客
+帮我设置codex皮肤 mcgfdata/codex-skin，作者是：终端极客
 安装 salary-cat
 ```
 
@@ -109,11 +113,14 @@ Then ask Codex. When no theme is specified, Codex Skin uses `salary-cat` by defa
 
 ```text
 帮我安装codex-skin，作者是：终端极客
+帮我设置codex皮肤 mcgfdata/codex-skin ，作者是 终端极客
+帮我设置codex皮肤 mcgfdata/codex-skin，作者是：终端极客
 ```
 
 The matching rules live in the frontmatter of `SKILL.md` and `skills/codex-skin/SKILL.md`. Marketplace and local Skill indexes should match these terms:
 
 - `codex-skin`
+- `帮我设置codex皮肤`
 - `终端极客`
 - `月薪喵`
 - `salary-cat`
@@ -134,7 +141,7 @@ python3 /Users/mobvista/.codex/skills/.system/plugin-creator/scripts/validate_pl
 
 ## Use A Skin
 
-The easiest path is to run `setup-skin` once. It installs the skin settings and creates launch, restart, and restore entries on the desktop.
+The easiest path is to run `setup-skin` once. It installs the skin settings, creates launch/restart/restore entries on the desktop, and starts the image injector when possible.
 
 macOS:
 
@@ -156,7 +163,9 @@ After setup, the desktop contains:
 - `Codex Skin - Restart.command`: close the current Codex window and reopen it with the skin.
 - `Codex Skin - Restore.command`: remove the active skin.
 
-If Codex is already running, save your current work and use the restart launcher. You can also run it from the terminal:
+On macOS, if Codex is already running without the injector, `setup-skin.sh` registers a one-time background task. Save your current work and quit Codex with `Cmd+Q`; it will reopen with the 月薪喵 image skin.
+
+If you do not want to wait for the automatic restart, save your current work and use the restart launcher. You can also run it from the terminal:
 
 ```bash
 scripts/restart-skin.sh
